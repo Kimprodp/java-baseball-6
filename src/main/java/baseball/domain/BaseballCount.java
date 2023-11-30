@@ -11,8 +11,8 @@ public class BaseballCount {
     private boolean nothing;
 
     public BaseballCount(List<Integer> playerNumber, List<Integer> computerNumber) {
-        strike = countStrike(playerNumber, computerNumber);
-        ball = countBall(playerNumber, computerNumber);
+        countStrike(playerNumber, computerNumber);
+        countBall(playerNumber, computerNumber);
         checkNothing();
     }
 
@@ -28,34 +28,25 @@ public class BaseballCount {
         return nothing;
     }
 
-    private int countStrike(List<Integer> playerNumber, List<Integer> computerNumber) {
-        int count = DEFAULT_VALUE;
+    private void countStrike(List<Integer> playerNumber, List<Integer> computerNumber) {
         for (int i = DEFAULT_VALUE; i < playerNumber.size(); i++) {
             if (playerNumber.get(i).equals(computerNumber.get(i))) {
-                count++;
+                strike++;
             }
         }
-
-        return count;
     }
 
-    private int countBall(List<Integer> playerNumber, List<Integer> computerNumber) {
-        int count = DEFAULT_VALUE;
+    private void countBall(List<Integer> playerNumber, List<Integer> computerNumber) {
         for (int i = DEFAULT_VALUE; i < playerNumber.size(); i++) {
-            if (computerNumber.contains(playerNumber.get(i))) {
-                count++;
+            if (!playerNumber.get(i).equals(computerNumber.get(i)) && computerNumber.contains(playerNumber.get(i))) {
+                ball++;
             }
         }
-
-        return count;
     }
 
-    private boolean checkNothing() {
-        boolean isNothing = true;
-        if (strike != 0 && ball != 0) {
-            isNothing = false;
+    private void checkNothing() {
+        if (strike == 0 && ball == 0) {
+            nothing = true;
         }
-
-        return isNothing;
     }
 }
