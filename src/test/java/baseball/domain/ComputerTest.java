@@ -26,7 +26,7 @@ class ComputerTest {
 
     @DisplayName("랜덤으로 생성되는 숫자는 모두 다른 숫자여야 함")
     @Test
-    void confirmDifferentNumberByRandomNumber() {
+    void confirmDuplicationNumberByRandomNumber() {
         //given
         List<Integer> randomNumbers;
         Computer computer = new Computer();
@@ -50,7 +50,7 @@ class ComputerTest {
         randomNumbers = computer.getNumber();
 
         //then
-        assertThat(randomNumbers.stream().allMatch(number -> number > 0 && number < 9)).isTrue();
+        assertThat(randomNumbers.stream().allMatch(number -> number >= 1 && number <= 9)).isTrue();
     }
 
 }
