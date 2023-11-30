@@ -14,7 +14,7 @@ public class Player {
         for (char digit : String.valueOf(inputValue).toCharArray()) {
             numberCheck.add(Character.getNumericValue(digit));
         }
-        
+
         validateSize(numberCheck);
         validateRange(numberCheck);
         validateDuplication(numberCheck);
@@ -26,14 +26,14 @@ public class Player {
     }
 
     private void validateSize(List<Integer> numberCheck) throws IllegalArgumentException {
-        if (numberCheck.size() > 3) {
+        if (numberCheck.size() > BaseballGame.MAX_NUMBER_SIZE) {
             throw new IllegalArgumentException();
         }
     }
 
     private void validateRange(List<Integer> numberCheck) throws IllegalArgumentException {
         for (int number : numberCheck) {
-            if (number < 0 || number > 9) {
+            if (number < BaseballGame.MIN_NUMBER_RANGE || number > BaseballGame.MAX_NUMBER_RANGE) {
                 throw new IllegalArgumentException();
             }
         }
