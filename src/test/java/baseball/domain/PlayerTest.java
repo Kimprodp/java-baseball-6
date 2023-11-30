@@ -18,11 +18,11 @@ class PlayerTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("플레이어 숫자가 0부터 9까지의 숫자가 아닐 경우 예외가 발생함")
+    @DisplayName("플레이어 숫자가 1부터 9까지의 숫자가 아닐 경우 예외가 발생함")
     @Test
     void rangeExceptionByPlayerNumber() {
         //given
-        int number = -124;
+        int number = 104;
 
         //when, then
         assertThatThrownBy(() -> new Player(number))
