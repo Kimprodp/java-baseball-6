@@ -9,15 +9,16 @@ import org.junit.jupiter.api.Test;
 
 class BaseballGameTest {
 
-    @DisplayName("플레이어 번호와 함께 게임을 요청하면 게임 결과를 반환함")
+    @DisplayName("게임을 실행하면 게임 결과를 반환함")
     @Test
-    void confirmGameResultByPlayerNumber() {
+    void confirmGameResultByStartGame() {
         //given
         List<Integer> playerNumber = Arrays.asList(1, 2, 3);
         BaseballGame baseballGame = new BaseballGame();
+        baseballGame.setNewGame();
+        baseballGame.setPlayer(playerNumber);
 
         //when, then
-        assertThat(baseballGame.startGame(playerNumber)).isExactlyInstanceOf(BaseballCount.class);
+        assertThat(baseballGame.runGame()).isExactlyInstanceOf(BaseballCount.class);
     }
-
 }

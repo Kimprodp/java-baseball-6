@@ -52,5 +52,4 @@ class ComputerTest {
         //then
         assertThat(randomNumbers.stream().allMatch(number -> number >= 1 && number <= 9)).isTrue();
     }
-
 }

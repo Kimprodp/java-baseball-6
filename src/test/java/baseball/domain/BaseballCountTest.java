@@ -50,7 +50,6 @@ class BaseballCountTest {
         //then
         assertThat(baseballCount.getStrike()).isEqualTo(0);
         assertThat(baseballCount.getBall()).isEqualTo(0);
-        assertThat(baseballCount.getNothing()).isTrue();
     }
 
     @DisplayName("모든 수를 맞출 경우 3스트라이크")
@@ -66,7 +65,6 @@ class BaseballCountTest {
         //then
         assertThat(baseballCount.getStrike()).isEqualTo(3);
         assertThat(baseballCount.getBall()).isEqualTo(0);
-        assertThat(baseballCount.getNothing()).isFalse();
     }
 
     @DisplayName("1개의 숫자가 자리까지 일치하고 2개의 숫자는 자리만 다른 경우 2볼 1스크라이크")
@@ -82,6 +80,5 @@ class BaseballCountTest {
         //then
         assertThat(baseballCount.getStrike()).isEqualTo(1);
         assertThat(baseballCount.getBall()).isEqualTo(2);
-        assertThat(baseballCount.getNothing()).isFalse();
     }
 }
