@@ -26,7 +26,7 @@ public class Validator {
 
     public static void validateRestartNumber(int inputValue) {
         if (inputValue != GameStatus.GAME_RESTART && inputValue != GameStatus.GAME_END) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(Message.ERROR_RESTART.getMessage());
         }
     }
 
@@ -40,20 +40,20 @@ public class Validator {
         try {
             Integer.parseInt(inputValue);
         } catch (NumberFormatException exception) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(Message.ERROR_INPUT_INTEGER.getMessage());
         }
     }
 
     private static void validateGameNumberSize(List<Integer> number) {
-        if (number.size() > BaseballGame.MAX_NUMBER_SIZE) {
-            throw new IllegalArgumentException();
+        if (number.size() != BaseballGame.NUMBER_SIZE) {
+            throw new IllegalArgumentException(Message.ERROR_GAME_NUMBER_SIZE.getMessage());
         }
     }
 
     private static void validateGameNumberRange(List<Integer> number) {
         for (int value : number) {
             if (value < 1 || value > 9) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(Message.ERROR_GAME_NUMBER_RANGE.getMessage());
             }
         }
     }
@@ -61,7 +61,7 @@ public class Validator {
     private static void validateGameNumberDuplication(List<Integer> number) {
         Set<Integer> numberCheck = new HashSet<>(number);
         if (numberCheck.size() != number.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(Message.ERROR_GAME_NUMBER_DUPLICATION.getMessage());
         }
     }
 }
