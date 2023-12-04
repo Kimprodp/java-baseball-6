@@ -15,7 +15,12 @@ public enum Message {
     GAME_RESULT_NOTHING("낫싱"),
 
     /* Error */
-    ERROR_INPUT_EMPTY("[ERROR] 입력값이 없습니다.다시 입력해 주세요.");
+    ERROR_INPUT_EMPTY("[ERROR] 입력값이 없습니다.다시 입력해 주세요."),
+    ERROR_INPUT_INTEGER("[ERROR] 숫자만 입력 가능합니다. 다시 입력해 주세요."),
+    ERROR_GAME_NUMBER_SIZE("[ERROR] 3개의 숫자만 입력 가능합니다. 다시 입력해 주세요."),
+    ERROR_GAME_NUMBER_RANGE("[ERROR] 1부터 9까지의 숫자만 입력 가능합니다. 다시 입력해 주세요."),
+    ERROR_GAME_NUMBER_DUPLICATION("[ERROR] 중복된 숫자가 있습니다. 다시 입력해 주세요."),
+    ERROR_RESTART("[ERROR] 1 또는 2만 입력 가능합니다. 다시 입력해 주세요.");
 
     private final String message;
 
