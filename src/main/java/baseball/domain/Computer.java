@@ -1,5 +1,6 @@
 package baseball.domain;
 
+import baseball.Exception.Validator;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ public class Computer {
     private List<Integer> number;
 
     public Computer() {
-        number = createRandomNumber();
+        number = Validator.validateGameNumber(createRandomNumber());
     }
 
     public List<Integer> getNumber() {
